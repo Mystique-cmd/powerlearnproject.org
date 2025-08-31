@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#magicBox {
+  width: 150px;
+  height: 150px;
+  background-color: royalblue;
+  margin: 20px auto;
+  border-radius: 10px;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+/* Hover effect (Part 1: CSS transitions) */
+#magicBox:hover {
+  transform: scale(1.1);
+}
+
+/* Keyframe animation for spinning */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Class to trigger spin */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Dark mode toggle example */
+.dark-mode {
+  background-color: #222;
+  color: #eee;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.form-section {
+  margin-top: 30px;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+}
