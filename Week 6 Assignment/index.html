@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Web Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Interactive Demo Page</h1>
+  </header>
+
+  <!-- Interactive Section 1: Theme Toggle -->
+  <section>
+    <button id="themeToggle">Toggle Dark Mode</button>
+  </section>
+
+  <!-- Interactive Section 2: Live Character Counter -->
+  <section>
+    <label for="liveMessage">Type something:</label><br />
+    <textarea id="liveMessage" rows="4" cols="50"></textarea>
+    <p id="charCount">Characters: 0</p>
+  </section>
+
+  <!-- Form Section -->
+  <section>
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="text" id="email" /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" rows="4" cols="50"></textarea><br />
+
+      <button type="submit">Submit</button>
+      <p id="formError" class="error"></p>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
