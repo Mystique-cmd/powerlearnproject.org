@@ -1,29 +1,47 @@
-// backend/server.js
-import dotenv from 'dotenv';
+// server.js
+import pino from 'pino';
 import express from 'express';
-import mongoose from 'mongoose';
+import helmet from 'helmet';
+import compression from 'compression';
+import morgan from 'morgan';
 import cors from 'cors';
-import router from './routes/items.js'; // note the .js extension
+import routes from './routes/items.js';
+import { errorHandler, notFound } from './middleware/errors.js';
 
-dotenv.config();
+// ✅ Import connectDB
+import { connectDB } from './db/index.js';
+import dotenv from 'dotenv';
+
+dotenv.config(); // load .env variables
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('✅ MongoDB connected'))
-.catch(err => console.error(err));
+export const logger = pino({ level: process.env.LOG_LEVEL || 'info' });
 
-// Routes
-app.use('/api/items', router);
+app.use(
+  helmet.hsts({
+    maxAge: 31536000,
+    includeSubDomains: true,
+    preload: true
+  })
+);
 
-// Health check
-app.get('/health', (req, res) => res.json({ status: 'ok' }));
+app.use(helmet({ crossOriginResourcePolicy: false }));
+app.use(compression());
+app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
+app.use(express.json({ limit: '1mb' }));
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
+
+app.use('/api', routes);
+
+app.use(notFound);
+app.use(errorHandler); // centralized error handling
+
+const port = process.env.PORT || 5000;
+
+// ✅ Connect to MongoDB before starting server
+connectDB(process.env.MONGO_URI).then(() => {
+  app.listen(port, () => console.log(`Server running on ${port}`));
+});
