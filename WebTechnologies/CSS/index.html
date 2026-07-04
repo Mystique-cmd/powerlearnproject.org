@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Basics & The Box Model</title>
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>CSS Basics & The Box Model</h1>
+      <nav class="nav">
+        <a href="#intro">Intro</a>
+        <a href="#cards">Cards</a>
+        <a href="#box-model">Box Model</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="intro" class="section">
+      <h2>Introduction</h2>
+      <p>
+        This page demonstrates core CSS styling and the Box Model. Explore margins, padding,
+        borders, and background colors to see how layout and spacing work in practice.
+      </p>
+      <button class="btn">Primary Button</button>
+    </section>
+
+    <section id="cards" class="section grid">
+      <article class="card">
+        <h3>Card One</h3>
+        <p>Uses margin, padding, border, and a subtle shadow to create separation.</p>
+        <a class="btn btn-outline" href="#">Learn more</a>
+      </article>
+
+      <article class="card">
+        <h3>Card Two</h3>
+        <p>Typography and spacing are consistent via shared variables and utilities.</p>
+        <a class="btn btn-outline" href="#">Learn more</a>
+      </article>
+
+      <article class="card">
+        <h3>Card Three</h3>
+        <p>Resize your browser to see responsive grid behavior with auto-fit.</p>
+        <a class="btn btn-outline" href="#">Learn more</a>
+      </article>
+    </section>
+
+    <section id="box-model" class="section">
+      <h2>Box Model Playground</h2>
+      <p>
+        Each demo box shows margin (dashed outline), border (solid), padding (light blue),
+        and content (light yellow). Compare content-box vs border-box sizing.
+      </p>
+
+      <div class="box-row">
+        <div class="box-demo content-box">
+          <span class="label">content-box</span>
+          <div class="box-content">
+            <p>
+              With <code>box-sizing: content-box</code>, declared width excludes padding and border,
+              so the total element width grows as you add them.
+            </p>
+          </div>
+        </div>
+
+        <div class="box-demo border-box">
+          <span class="label">border-box</span>
+          <div class="box-content">
+            <p>
+              With <code>box-sizing: border-box</code>, declared width includes padding and border,
+              keeping the total width constant.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend" aria-label="Box model legend">
+        <div class="swatch margin" title="Margin"></div><span>Margin</span>
+        <div class="swatch border" title="Border"></div><span>Border</span>
+        <div class="swatch padding" title="Padding"></div><span>Padding</span>
+        <div class="swatch content" title="Content"></div><span>Content</span>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>
+        This is placeholder content to show consistent spacing and typography.
+        Replace with your own details.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; 2025 Mystique-cmd</small>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* Global Reset & Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+.site-header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* NAVBAR: Flexbox for horizontal menu */
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.navbar li {
+    margin: 0.5rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #666;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.navbar a:hover {
+    background: #888;
+}
+
+/* MAIN LAYOUT: Grid */
+.main-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Content & Sidebar */
+.content, .sidebar {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* FLEXBOX CARDS INSIDE CONTENT */
+.card-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.card {
+    flex: 1 1 200px;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+.site-footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet: Single column main layout, adjust nav */
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    .navbar ul {
+        justify-content: space-around;
+    }
+}
+
+/* Mobile: Stack nav links vertically */
+@media (max-width: 480px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+}
