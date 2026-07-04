@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@import './styles/animations.css';
+
+/* Global styles */
+:root {
+  --transition: all 200ms ease;
+}
+
+html, body, #root { height: 100%; }
+body { margin: 0; }
