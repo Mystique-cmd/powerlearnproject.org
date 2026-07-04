@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Box Animation</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>✨ Magic Box Interactive Demo ✨</h1>
+  </header>
+
+  <!-- Part 1: CSS Animation Target -->
+  <div id="magicBox"></div>
+
+  <!-- Controls -->
+  <section class="controls">
+    <button id="spinBtn">Spin Box</button>
+    <button id="colorBtn">Change Color</button>
+    <button id="resetBtn">Reset</button>
+  </section>
+
+  <!-- Part 2: Form to demonstrate scope & return values -->
+  <section class="form-section">
+    <h2>Animation Speed Calculator</h2>
+    <form id="speedForm">
+      <label for="distance">Distance (px):</label>
+      <input type="number" id="distance" value="300" />
+
+      <label for="time">Time (seconds):</label>
+      <input type="number" id="time" value="2" />
+
+      <button type="submit">Calculate Speed</button>
+    </form>
+    <p id="speedResult"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
